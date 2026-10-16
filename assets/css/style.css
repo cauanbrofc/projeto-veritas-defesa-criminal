@@ -1,0 +1,1296 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;500;600;700&display=swap" );
+
+/* =========================================================
+   PROJETO VERITAS
+   Identidade visual: dossiê jurídico contemporâneo
+   ========================================================= */
+
+:root {
+    --azul-tinta: #192a36;
+    --azul-profundo: #12212c;
+    --azul-petroleo: #2d4d5b;
+    --azul-suave: #e8f0f1;
+
+    --papel: #fbfaf6;
+    --marfim: #f1ede3;
+    --marfim-escuro: #e6dfd1;
+
+    --vinho: #792d3e;
+    --vinho-escuro: #571e2d;
+    --vinho-suave: #f3e6e8;
+
+    --dourado: #b48a4b;
+    --dourado-claro: #d2b77c;
+
+    --texto: #26343c;
+    --texto-suave: #65747b;
+    --cinza-ardosia: #56656c;
+    --linha: #d5cec0;
+    --branco: #ffffff;
+
+    --sombra-suave: 0 12px 30px rgba(25, 42, 54, 0.08);
+    --sombra-media: 0 20px 45px rgba(25, 42, 54, 0.13);
+
+    --fonte-titulo: "Cormorant Garamond", Georgia, serif;
+    --fonte-corpo: "Source Sans 3", Arial, sans-serif;
+    --fonte-tecnica: "IBM Plex Mono", "Courier New", monospace;
+
+    --transicao: 180ms ease-out;
+}
+
+/* =========================================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(180, 138, 75, 0.07),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(121, 45, 62, 0.04),
+            transparent 26%
+        ),
+        var(--marfim);
+
+    color: var(--texto);
+    font-family: var(--fonte-corpo);
+    line-height: 1.6;
+}
+
+body::selection {
+    background: var(--vinho);
+    color: var(--branco);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    line-height: 1.08;
+}
+
+h1 span,
+h2 span {
+    display: block;
+    color: var(--vinho);
+}
+
+p {
+    color: var(--texto-suave);
+}
+
+.etiqueta {
+    display: inline-block;
+    color: var(--dourado);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+    position: relative;
+    z-index: 10;
+    background: var(--azul-tinta);
+    border-bottom: 3px solid var(--dourado);
+}
+
+.cabecalho::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.cabecalho-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 82px;
+}
+
+.logo {
+    position: relative;
+    color: var(--marfim);
+    font-family: var(--fonte-titulo);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+}
+
+.logo::after {
+    content: "DEFESA CRIMINAL";
+    display: block;
+    margin-top: -4px;
+    color: var(--dourado-claro);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.45rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    color: var(--marfim);
+    font-family: var(--fonte-corpo);
+    font-size: 0.92rem;
+}
+
+.menu a {
+    position: relative;
+    transition:
+        color var(--transicao),
+        transform var(--transicao);
+}
+
+.menu a:not(.botao-menu)::after {
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 1px;
+    background: var(--dourado);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--transicao);
+}
+
+.menu a:not(.botao-menu):hover {
+    color: var(--dourado-claro);
+}
+
+.menu a:not(.botao-menu):hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.botao-menu {
+    padding: 9px 17px;
+    border: 1px solid rgba(210, 183, 124, 0.75);
+    border-radius: 3px;
+    color: var(--marfim);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition:
+        background var(--transicao),
+        color var(--transicao),
+        border-color var(--transicao);
+}
+
+.botao-menu:hover {
+    background: var(--dourado);
+    border-color: var(--dourado);
+    color: var(--azul-profundo);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.botao-principal,
+.botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: var(--fonte-corpo);
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition:
+        background var(--transicao),
+        border-color var(--transicao),
+        color var(--transicao),
+        transform var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.botao-principal {
+    background: var(--vinho);
+    border: 1px solid var(--vinho);
+    color: var(--branco);
+}
+
+.botao-principal:hover {
+    background: var(--vinho-escuro);
+    border-color: var(--vinho-escuro);
+    box-shadow: 0 7px 18px rgba(121, 45, 62, 0.2);
+    transform: translateY(-2px);
+}
+
+.botao-secundario {
+    background: transparent;
+    border: 1px solid var(--azul-petroleo);
+    color: var(--azul-profundo);
+}
+
+.botao-secundario:hover {
+    background: var(--azul-suave);
+    border-color: var(--dourado);
+    transform: translateY(-2px);
+}
+
+.botao-largo {
+    width: 100%;
+}
+
+/* =========================================================
+   PÁGINA INICIAL — HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 108px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(251, 250, 246, 0.97),
+            rgba(241, 237, 227, 0.88)
+        );
+}
+
+.hero::before {
+    position: absolute;
+    top: 0;
+    right: 9%;
+    width: 1px;
+    height: 100%;
+    background: rgba(180, 138, 75, 0.15);
+    content: "";
+}
+
+.hero::after {
+    position: absolute;
+    top: 12%;
+    right: 4%;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(180, 138, 75, 0.18);
+    border-radius: 50%;
+    content: "";
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.03fr 0.97fr;
+    align-items: center;
+    gap: 82px;
+}
+
+.hero-texto h1 {
+    max-width: 610px;
+    margin: 18px 0 26px;
+    font-size: clamp(3rem, 6vw, 5.4rem);
+    letter-spacing: -0.02em;
+}
+
+.hero-texto > p {
+    max-width: 545px;
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.hero-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 34px;
+}
+
+/* =========================================================
+   CARTÃO DE PRÉVIA DO CASO
+   ========================================================= */
+
+.hero-card {
+    position: relative;
+    padding: 29px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.96),
+            rgba(248, 244, 235, 0.96)
+        );
+    border: 1px solid var(--linha);
+    border-top: 4px solid var(--azul-tinta);
+    border-radius: 3px;
+    box-shadow: var(--sombra-media);
+}
+
+.hero-card::before {
+    position: absolute;
+    top: 17px;
+    right: 18px;
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(180, 138, 75, 0.35);
+    border-radius: 50%;
+    content: "";
+}
+
+.hero-card::after {
+    position: absolute;
+    top: 29px;
+    right: 30px;
+    color: var(--dourado);
+    content: "V";
+    font-family: var(--fonte-titulo);
+    font-size: 1.65rem;
+    font-weight: 700;
+    opacity: 0.65;
+}
+
+.card-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--linha);
+    color: var(--azul-tinta);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ponto {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    border: 2px solid var(--branco);
+    border-radius: 50%;
+    background: var(--vinho);
+    box-shadow: 0 0 0 1px var(--vinho);
+}
+
+.linha-tempo-preview {
+    padding-top: 20px;
+}
+
+.evento {
+    position: relative;
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    gap: 17px;
+    padding: 18px 0 18px 13px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.evento::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: var(--azul-petroleo);
+    content: "";
+    opacity: 0.35;
+}
+
+.evento:last-child {
+    border-bottom: 0;
+}
+
+.evento-data {
+    color: var(--dourado);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.evento strong {
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.evento p {
+    margin-top: 3px;
+    font-size: 0.85rem;
+}
+
+.evento.alerta::before {
+    background: var(--vinho);
+    opacity: 0.9;
+}
+
+.evento.alerta .evento-data,
+.evento.alerta strong {
+    color: var(--vinho);
+}
+
+/* =========================================================
+   SEÇÃO DE RECURSOS
+   ========================================================= */
+
+.recursos {
+    padding: 94px 0;
+    background: var(--papel);
+    border-top: 1px solid var(--linha);
+}
+
+.secao-titulo {
+    max-width: 665px;
+}
+
+.secao-titulo h2 {
+    margin: 16px 0;
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+}
+
+.secao-titulo p {
+    max-width: 590px;
+    font-size: 1rem;
+}
+
+.recursos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.recurso-card {
+    position: relative;
+    min-height: 220px;
+    padding: 30px 28px;
+    overflow: hidden;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-top: 3px solid var(--azul-petroleo);
+    box-shadow: var(--sombra-suave);
+    transition:
+        border-color var(--transicao),
+        transform var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.recurso-card::after {
+    position: absolute;
+    right: -12px;
+    bottom: -29px;
+    color: rgba(180, 138, 75, 0.1);
+    content: "§";
+    font-family: var(--fonte-titulo);
+    font-size: 8rem;
+    line-height: 1;
+}
+
+.recurso-card:hover {
+    border-top-color: var(--vinho);
+    box-shadow: var(--sombra-media);
+    transform: translateY(-4px);
+}
+
+.recurso-numero {
+    color: var(--dourado);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.recurso-card h3 {
+    position: relative;
+    z-index: 1;
+    margin: 22px 0 10px;
+    font-size: 1.6rem;
+}
+
+.recurso-card p {
+    position: relative;
+    z-index: 1;
+    max-width: 280px;
+    font-size: 0.94rem;
+}
+
+/* =========================================================
+   PÁGINAS DE FORMULÁRIO — LOGIN E CADASTRO
+   ========================================================= */
+
+.pagina-formulario {
+    min-height: calc(100vh - 160px);
+    padding: 86px 0 100px;
+    background:
+        linear-gradient(
+            125deg,
+            rgba(241, 237, 227, 0.93),
+            rgba(251, 250, 246, 0.98)
+        );
+}
+
+.formulario-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+    gap: 82px;
+}
+
+.formulario-introducao {
+    padding-top: 12px;
+}
+
+.formulario-introducao h1 {
+    max-width: 470px;
+    margin: 18px 0;
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+}
+
+.formulario-introducao p {
+    max-width: 430px;
+    font-size: 1.04rem;
+    line-height: 1.75;
+}
+
+.formulario {
+    position: relative;
+    padding: 36px;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-top: 4px solid var(--vinho);
+    border-radius: 3px;
+    box-shadow: var(--sombra-media);
+}
+
+.formulario::before {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    color: var(--dourado);
+    content: "REGISTRO";
+    font-family: var(--fonte-tecnica);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    opacity: 0.75;
+}
+
+.campo {
+    margin-bottom: 21px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 13px;
+    background: #fffefa;
+    border: 1px solid var(--linha);
+    border-radius: 3px;
+    color: var(--texto);
+    font-family: var(--fonte-corpo);
+    font-size: 0.95rem;
+    outline: none;
+    transition:
+        border-color var(--transicao),
+        box-shadow var(--transicao),
+        background var(--transicao);
+}
+
+.campo textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: #99a2a5;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+    background: var(--branco);
+    border-color: var(--azul-petroleo);
+    box-shadow: 0 0 0 3px rgba(45, 77, 91, 0.12);
+}
+
+.texto-ajuda {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.texto-ajuda a {
+    color: var(--vinho);
+    font-weight: 600;
+    transition: color var(--transicao);
+}
+
+.texto-ajuda a:hover {
+    color: var(--vinho-escuro);
+    text-decoration: underline;
+}
+
+/* =========================================================
+   ELEMENTOS OPCIONAIS PARA AS PRÓXIMAS TELAS
+   ========================================================= */
+
+.selo-dossie {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    background: var(--marfim);
+    border: 1px solid var(--dourado);
+    color: var(--azul-profundo);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.selo-dossie::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dourado);
+    content: "";
+}
+
+.status-ativo,
+.status-revisao,
+.status-arquivado {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--fonte-tecnica);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.status-ativo::before,
+.status-revisao::before,
+.status-arquivado::before {
+    width: 7px;
+    height: 7px;
+    display: inline-block;
+    border-radius: 50%;
+    content: "";
+}
+
+.status-ativo {
+    color: var(--azul-petroleo);
+}
+
+.status-ativo::before {
+    background: #4f8a76;
+}
+
+.status-revisao {
+    color: var(--vinho);
+}
+
+.status-revisao::before {
+    background: var(--vinho);
+}
+
+.status-arquivado {
+    color: var(--cinza-ardosia);
+}
+
+.status-arquivado::before {
+    background: var(--cinza-ardosia);
+}
+
+.linha-documental {
+    width: 100%;
+    height: 1px;
+    margin: 20px 0;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            var(--dourado) 0,
+            var(--dourado) 5px,
+            transparent 5px,
+            transparent 10px
+        );
+    opacity: 0.55;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    padding: 24px 20px;
+    background: var(--azul-profundo);
+    border-top: 3px solid var(--dourado);
+    text-align: center;
+}
+
+.rodape p {
+    color: #d8e0e3;
+    font-family: var(--fonte-tecnica);
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid rgba(180, 138, 75, 0.75);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .hero-conteudo,
+    .formulario-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .hero {
+        padding: 72px 0 82px;
+    }
+
+    .hero-card {
+        max-width: 680px;
+    }
+
+    .formulario-introducao {
+        padding-top: 0;
+    }
+
+    .recursos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .container {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .cabecalho-conteudo {
+        min-height: 74px;
+    }
+
+    .logo {
+        font-size: 1.45rem;
+    }
+
+    .logo::after {
+        font-size: 0.37rem;
+    }
+
+    .menu {
+        gap: 10px;
+        font-size: 0.82rem;
+    }
+
+    .menu > a:first-child {
+        display: none;
+    }
+
+    .botao-menu {
+        padding: 8px 12px;
+        font-size: 0.64rem;
+    }
+
+    .hero-texto h1 {
+        font-size: clamp(2.7rem, 14vw, 4rem);
+    }
+
+    .hero-texto > p {
+        font-size: 1rem;
+    }
+
+    .hero-acoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botao-principal,
+    .botao-secundario {
+        width: 100%;
+    }
+
+    .hero-card,
+    .formulario {
+        padding: 24px 20px;
+    }
+
+    .evento {
+        grid-template-columns: 62px 1fr;
+        gap: 12px;
+        padding-left: 10px;
+    }
+
+    .recursos {
+        padding: 70px 0;
+    }
+
+    .recursos-grid {
+        grid-template-columns: 1fr;
+        margin-top: 34px;
+    }
+
+    .pagina-formulario {
+        padding: 64px 0 76px;
+    }
+
+    .formulario-introducao h1 {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+    }
+}
+/* =========================================================
+   MENSAGENS DOS FORMULÁRIOS
+   ========================================================= */
+
+.mensagem {
+    margin-bottom: 24px;
+    padding: 13px 15px;
+    border-left: 4px solid;
+    font-family: var(--fonte-corpo);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.mensagem a {
+    display: block;
+    margin-top: 8px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.mensagem-sucesso {
+    background: rgba(79, 138, 118, 0.12);
+    border-left-color: #4f8a76;
+    color: #285b4b;
+}
+
+.mensagem-sucesso a {
+    color: #285b4b;
+}
+
+.mensagem-erro {
+    background: var(--vinho-suave);
+    border-left-color: var(--vinho);
+    color: var(--vinho-escuro);
+}
+/* =========================================================
+   PAINEL DO ADVOGADO
+   ========================================================= */
+
+.painel {
+    min-height: calc(100vh - 160px);
+    padding: 76px 0 100px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(241, 237, 227, 0.94),
+            rgba(251, 250, 246, 0.98)
+        );
+}
+
+.painel-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.painel-cabecalho h1 {
+    max-width: 650px;
+    margin: 15px 0;
+    font-size: clamp(2.8rem, 5vw, 4.6rem);
+}
+
+.painel-cabecalho p {
+    max-width: 560px;
+    font-size: 1.02rem;
+}
+
+.painel-aviso {
+    max-width: 760px;
+    margin: 34px 0;
+    padding: 18px 20px;
+    background: var(--vinho-suave);
+    border-left: 4px solid var(--vinho);
+}
+
+.painel-aviso strong {
+    color: var(--vinho-escuro);
+    font-family: var(--fonte-titulo);
+    font-size: 1.35rem;
+}
+
+.painel-aviso p {
+    margin-top: 4px;
+    color: var(--vinho-escuro);
+    font-size: 0.9rem;
+}
+
+.painel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 42px;
+}
+
+.painel-card {
+    min-height: 230px;
+    padding: 28px;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-top: 3px solid var(--azul-petroleo);
+    box-shadow: var(--sombra-suave);
+    transition:
+        border-color var(--transicao),
+        transform var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.painel-card:hover {
+    border-top-color: var(--vinho);
+    box-shadow: var(--sombra-media);
+    transform: translateY(-3px);
+}
+
+.painel-card h2 {
+    margin: 20px 0 10px;
+    font-size: 1.8rem;
+}
+
+.painel-card p {
+    min-height: 58px;
+    font-size: 0.94rem;
+}
+
+.link-indisponivel {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--vinho);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+    .painel-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .painel-cabecalho .botao-secundario {
+        width: auto;
+    }
+
+    .painel-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================================
+   PÁGINA DE CASOS
+   ========================================================= */
+
+.pagina-casos {
+    min-height: calc(100vh - 160px);
+    padding: 72px 0 100px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(241, 237, 227, 0.94),
+            rgba(251, 250, 246, 0.98)
+        );
+}
+
+.casos-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.casos-cabecalho h1 {
+    margin: 15px 0;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+}
+
+.casos-cabecalho p {
+    max-width: 560px;
+    font-size: 1.02rem;
+}
+
+.casos-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(400px, 1.2fr);
+    align-items: start;
+    gap: 28px;
+    margin-top: 42px;
+}
+
+.novo-caso-card,
+.lista-casos {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    box-shadow: var(--sombra-suave);
+}
+
+.novo-caso-card {
+    padding: 30px;
+    border-top: 4px solid var(--vinho);
+}
+
+.novo-caso-card h2,
+.lista-casos h2 {
+    margin: 16px 0 8px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.9rem;
+}
+
+.descricao-card {
+    margin-bottom: 26px;
+    font-size: 0.92rem;
+}
+
+.lista-casos {
+    padding: 30px;
+    border-top: 4px solid var(--azul-petroleo);
+}
+
+.lista-casos-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.lista-casos-cabecalho h2 {
+    margin-bottom: 0;
+}
+
+.quantidade-casos {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--dourado);
+    border-radius: 50%;
+    color: var(--vinho);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.lista {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.caso-item {
+    padding: 20px;
+    background: var(--papel);
+    border: 1px solid var(--linha);
+    border-left: 3px solid var(--azul-petroleo);
+    transition:
+        border-color var(--transicao),
+        box-shadow var(--transicao),
+        transform var(--transicao);
+}
+
+.caso-item:hover {
+    border-left-color: var(--vinho);
+    box-shadow: var(--sombra-suave);
+    transform: translateX(3px);
+}
+
+.caso-item-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.caso-id {
+    color: var(--dourado);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+}
+
+.caso-item h3 {
+    margin-bottom: 6px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.55rem;
+}
+
+.caso-item p {
+    font-size: 0.9rem;
+}
+
+.caso-item small {
+    display: block;
+    margin-top: 15px;
+    color: var(--cinza-ardosia);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.64rem;
+}
+
+.texto-sem-descricao {
+    font-style: italic;
+}
+
+.casos-vazio {
+    padding: 50px 15px 24px;
+    text-align: center;
+}
+
+.casos-vazio h3 {
+    margin-bottom: 8px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.55rem;
+}
+
+.casos-vazio p {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 850px) {
+    .casos-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .casos-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .casos-cabecalho .botao-secundario {
+        width: auto;
+    }
+
+    .novo-caso-card,
+    .lista-casos {
+        padding: 23px 20px;
+    }
+
+    .caso-item-topo {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+

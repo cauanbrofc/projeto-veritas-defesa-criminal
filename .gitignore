@@ -1,0 +1,34 @@
+# Configurações locais sensíveis
+.env
+.env.*
+config/conexao.local.php
+config/*local*.php
+
+# Senhas e arquivos de teste locais
+senha.txt
+credenciais.txt
+teste_conexao.php
+
+# Pastas do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Configurações de editores
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.example.json
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Arquivos gerados pelo XAMPP e pelo sistema
+uploads/*
+!uploads/.gitkeep
+
+# Dumps locais do banco de dados
+*.sql.bak
+backup_*.sql

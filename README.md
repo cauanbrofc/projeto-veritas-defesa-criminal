@@ -181,7 +181,7 @@ As demais funcionalidades serão implementadas gradualmente e avaliadas por meio
 
 Este repositório faz parte do desenvolvimento do Trabalho de Conclusão de Curso e possui finalidade acadêmica e demonstrativa.
 
-**Autor:** [Seu nome completo]
-**Curso:** [Nome do curso]
-**Instituição:** [Nome da instituição]
+**Autor:** Cauan Oliveira
+**Curso:** TEC.INFORMATICA - ÊNFASE EM PROGRAMAÇÃO
+**Instituição:** FUCAPI
 **Ano:** 2026

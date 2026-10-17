@@ -1,7 +1,11 @@
 <?php
 
-// Inicia a sessão do usuário.
+// Guarda temporariamente o HTML antes de enviá-lo ao navegador.
+// Isso permite que o PHP faça redirecionamentos corretamente.
+ob_start();
+
 session_start();
+
 
 // Verifica qual página foi solicitada.
 // Se nenhuma página for informada, será aberta a página inicial.
@@ -22,7 +26,9 @@ $paginasPermitidas = [
     'login',
     'cadastro',
     'painel',
-    'casos'
+    'casos',
+    'caso',
+    'pessoas'
 ];
 
 
@@ -35,7 +41,9 @@ if (!in_array($pagina, $paginasPermitidas, true)) {
 // O painel somente poderá ser acessado por um usuário logado.
 $paginasProtegidas = [
     'painel',
-    'casos'
+    'casos',
+    'caso',
+    'pessoas'
 ];
 
 if (
@@ -49,3 +57,5 @@ if (
 
 // Carrega o layout principal.
 require __DIR__ . '/views/layout.php';
+
+

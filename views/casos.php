@@ -341,12 +341,18 @@ function classeStatus(string $status): string
                                 </div>
 
                                 <h3>
-                                    <?= htmlspecialchars(
-                                        $caso['titulo'],
-                                        ENT_QUOTES,
-                                        'UTF-8'
-                                    ) ?>
+                                    <a
+                                        href="index.php?pagina=caso&id=<?= (int) $caso['id'] ?>"
+                                        class="link-caso"
+                                    >
+                                        <?= htmlspecialchars(
+                                            $caso['titulo'],
+                                            ENT_QUOTES,
+                                            'UTF-8'
+                                        ) ?>
+                                    </a>
                                 </h3>
+
 
                                 <?php if (
                                     $caso['descricao'] !== null
@@ -375,6 +381,13 @@ function classeStatus(string $status): string
                                         strtotime($caso['criado_em'])
                                     ) ?>
                                 </small>
+                                <a
+                                    href="index.php?pagina=caso&id=<?= (int) $caso['id'] ?>"
+                                    class="botao-abrir-caso"
+                                >
+                                    Abrir detalhes
+                                </a>
+
                             </article>
                         <?php endforeach; ?>
                     </div>

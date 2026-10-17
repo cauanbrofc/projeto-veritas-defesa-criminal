@@ -1293,4 +1293,393 @@ p {
         gap: 8px;
     }
 }
+/* =========================================================
+   DETALHES DO CASO
+   ========================================================= */
+
+.pagina-detalhes-caso {
+    min-height: calc(100vh - 160px);
+    padding: 56px 0 100px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(241, 237, 227, 0.94),
+            rgba(251, 250, 246, 0.98)
+        );
+}
+
+.detalhes-caso-navegacao {
+    margin-bottom: 30px;
+}
+
+.link-voltar {
+    color: var(--azul-petroleo);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    transition: color var(--transicao);
+}
+
+.link-voltar:hover {
+    color: var(--vinho);
+}
+
+.cabecalho-detalhes-caso {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.cabecalho-detalhes-caso h1 {
+    max-width: 760px;
+    margin: 15px 0 8px;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.cabecalho-detalhes-caso p {
+    font-size: 0.94rem;
+}
+
+.detalhes-caso-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, 0.9fr) minmax(400px, 1.1fr);
+    align-items: start;
+    gap: 28px;
+    margin-top: 42px;
+}
+
+.resumo-caso-card {
+    padding: 30px;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-top: 4px solid var(--vinho);
+    box-shadow: var(--sombra-suave);
+}
+
+.resumo-caso-card h2 {
+    margin: 16px 0;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 2rem;
+}
+
+.descricao-caso {
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--linha);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.informacoes-caso {
+    display: grid;
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.informacoes-caso div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.informacoes-caso span {
+    color: var(--cinza-ardosia);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.67rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.informacoes-caso strong {
+    color: var(--azul-profundo);
+    font-family: var(--fonte-corpo);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.modulos-caso {
+    display: grid;
+    gap: 14px;
+}
+
+.modulo-caso {
+    display: grid;
+    grid-template-columns: 45px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    min-height: 100px;
+    padding: 20px;
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    border-left: 3px solid var(--azul-petroleo);
+    box-shadow: var(--sombra-suave);
+    transition:
+        border-color var(--transicao),
+        transform var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.modulo-caso:hover {
+    border-left-color: var(--vinho);
+    box-shadow: var(--sombra-media);
+    transform: translateX(3px);
+}
+
+.modulo-numero {
+    color: var(--dourado);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.modulo-caso h3 {
+    margin-bottom: 3px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.45rem;
+}
+
+.modulo-caso p {
+    font-size: 0.84rem;
+}
+
+.modulo-status {
+    color: var(--cinza-ardosia);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.link-caso {
+    transition: color var(--transicao);
+}
+
+.link-caso:hover {
+    color: var(--vinho);
+}
+
+.botao-abrir-caso {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--vinho);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.botao-abrir-caso:hover {
+    text-decoration: underline;
+}
+
+.pagina-erro {
+    min-height: calc(100vh - 160px);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.pagina-erro h1 {
+    margin-bottom: 15px;
+    font-size: 3rem;
+}
+
+.pagina-erro p {
+    margin-bottom: 25px;
+}
+
+@media (max-width: 850px) {
+    .detalhes-caso-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .cabecalho-detalhes-caso {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .modulo-caso {
+        grid-template-columns: 34px 1fr;
+    }
+
+    .modulo-status {
+        grid-column: 2;
+    }
+
+    .resumo-caso-card {
+        padding: 24px 20px;
+    }
+}
+/* =========================================================
+   MÓDULO DE PESSOAS
+   ========================================================= */
+
+.modulo-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.modulo-link:hover h3 {
+    color: var(--vinho);
+}
+
+.pagina-pessoas {
+    min-height: calc(100vh - 160px);
+    padding: 56px 0 100px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(241, 237, 227, 0.94),
+            rgba(251, 250, 246, 0.98)
+        );
+}
+
+.pessoas-navegacao {
+    margin-bottom: 30px;
+}
+
+.cabecalho-pessoas {
+    padding-bottom: 34px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.cabecalho-pessoas h1 {
+    margin: 15px 0 8px;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.cabecalho-pessoas p {
+    font-size: 0.96rem;
+}
+
+.pessoas-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.8fr) minmax(400px, 1.2fr);
+    align-items: start;
+    gap: 28px;
+    margin-top: 42px;
+}
+
+.formulario-pessoa-card,
+.lista-pessoas-card {
+    background: var(--branco);
+    border: 1px solid var(--linha);
+    box-shadow: var(--sombra-suave);
+}
+
+.formulario-pessoa-card {
+    padding: 30px;
+    border-top: 4px solid var(--vinho);
+}
+
+.formulario-pessoa-card h2,
+.lista-pessoas-card h2 {
+    margin: 16px 0 8px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.9rem;
+}
+
+.lista-pessoas-card {
+    padding: 30px;
+    border-top: 4px solid var(--azul-petroleo);
+}
+
+.lista-pessoas-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--linha);
+}
+
+.lista-pessoas-cabecalho h2 {
+    margin-bottom: 0;
+}
+
+.lista-pessoas {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.pessoa-item {
+    padding: 20px;
+    background: var(--papel);
+    border: 1px solid var(--linha);
+    border-left: 3px solid var(--azul-petroleo);
+    transition:
+        border-color var(--transicao),
+        box-shadow var(--transicao),
+        transform var(--transicao);
+}
+
+.pessoa-item:hover {
+    border-left-color: var(--vinho);
+    box-shadow: var(--sombra-suave);
+    transform: translateX(3px);
+}
+
+.pessoa-item h3 {
+    margin: 5px 0 8px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+}
+
+.pessoa-item p {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--linha);
+    font-size: 0.9rem;
+}
+
+.selo-papel {
+    display: inline-block;
+    padding: 5px 9px;
+    background: var(--vinho-suave);
+    color: var(--vinho-escuro);
+    font-family: var(--fonte-tecnica);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.pessoas-vazio {
+    padding: 50px 15px 24px;
+    text-align: center;
+}
+
+.pessoas-vazio h3 {
+    margin-bottom: 8px;
+    color: var(--azul-profundo);
+    font-family: var(--fonte-titulo);
+    font-size: 1.55rem;
+}
+
+.pessoas-vazio p {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 850px) {
+    .pessoas-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .formulario-pessoa-card,
+    .lista-pessoas-card {
+        padding: 24px 20px;
+    }
+}
 

@@ -335,7 +335,178 @@ Este repositório integra o desenvolvimento do Trabalho de Conclusão de Curso.
 
 <div align="center">
 
-
 Desenvolvido para fins acadêmicos.
 
 </div>
+
+---
+
+# Atualização do desenvolvimento — 07/11/2026
+
+Esta seção foi acrescentada para registrar, de forma explicativa, as mudanças realizadas no sistema até o momento. O conteúdo anterior do README foi mantido sem alterações.
+
+## Funcionalidades implementadas recentemente
+
+### Página inicial pública
+
+Foi criada a página inicial do Projeto VERITAS, apresentada quando o usuário acessa o endereço principal da aplicação. A página contém a apresentação do sistema, a identidade visual inspirada em um dossiê jurídico, os botões de cadastro e login e um aviso sobre a finalidade acadêmica do protótipo.
+
+### Cadastro e autenticação
+
+O sistema passou a possuir um fluxo completo de entrada do usuário, composto por cadastro, login, sessão e logout. O cadastro valida os campos, impede e-mails duplicados e armazena as senhas utilizando `password_hash()`. No login, a senha é conferida com `password_verify()`.
+
+Também foi implementado o controle de acesso às páginas internas. Dessa forma, páginas como painel, casos, detalhes do caso, pessoas, locais e acontecimentos exigem que o usuário esteja autenticado.
+
+### Painel do advogado
+
+Após o login, o usuário é encaminhado ao painel principal. O painel identifica o advogado logado e apresenta os módulos disponíveis no protótipo, incluindo o acesso aos casos cadastrados.
+
+### Cadastro e organização de casos
+
+Foi implementado o cadastro de casos com título, descrição e status. Os status disponíveis são:
+
+- aberto;
+
+- em revisão;
+
+- arquivado.
+
+A listagem mostra somente os casos pertencentes ao usuário autenticado. Também foi criada a página de detalhes de cada caso, com validação do proprietário do registro.
+
+### Módulo de pessoas
+
+Foi implementado o módulo de pessoas relacionadas a um caso. O usuário pode cadastrar nome, papel no caso e observações.
+
+Os papéis disponíveis incluem:
+
+- acusado;
+
+- vítima;
+
+- testemunha;
+
+- perito;
+
+- investigador;
+
+- outra pessoa.
+
+Os registros ficam vinculados ao caso aberto e podem ser consultados na página específica do módulo.
+
+### Módulo de locais
+
+Foi implementado o cadastro de locais relacionados aos casos. Cada local possui nome, endereço e observações.
+
+A modelagem utilizada atualmente é:
+
+```
+casos 1 ─── N locais
+```
+
+Isso significa que um caso pode possuir vários locais e cada local pertence diretamente a um caso por meio da coluna `caso_id`.
+
+Durante o desenvolvimento, foi identificada e corrigida uma inconsistência entre a tabela existente e o código PHP. A implementação final passou a utilizar diretamente `locais.caso_id`, mantendo o código e o banco coerentes.
+
+### Módulo de acontecimentos
+
+Foi criado o módulo de acontecimentos, que permite registrar fatos relacionados a um caso. Cada registro pode conter:
+
+- título;
+
+- descrição;
+
+- data do evento;
+
+- horário do evento;
+
+- local relacionado.
+
+Os acontecimentos são exibidos em ordem cronológica utilizando `data_evento` e `hora_evento`. Esse módulo constitui a base funcional da futura linha do tempo do sistema.
+
+### Interface dos acontecimentos
+
+Foi acrescentada uma apresentação visual em formato de linha cronológica. A interface diferencia a área de cadastro da área de registros e apresenta data, horário, título, descrição e local relacionado.
+
+Os aprimoramentos visuais mais detalhados, como ícones, filtros, edição e exclusão, serão realizados posteriormente, após a conclusão das funcionalidades principais.
+
+## Estrutura atual do banco relacionada aos módulos
+
+Até o momento, as principais relações implementadas são:
+
+```
+usuarios 1 ─── N casos
+casos 1 ─── N pessoas relacionadas
+casos 1 ─── N locais
+casos 1 ─── N acontecimentos
+acontecimentos N ─── 1 local opcional
+```
+
+A estrutura final do MER e do DER será revisada depois da conclusão dos módulos, para garantir que os diagramas representem exatamente o banco utilizado pelo sistema.
+
+## Percentual estimado de conclusão
+
+O percentual abaixo é uma estimativa acadêmica do desenvolvimento geral, considerando funcionalidades, banco de dados, testes, documentação e diagramas:
+
+```
+Projeto completo: aproximadamente 45%
+```
+
+A estimativa considera que a base estrutural e os principais fluxos de autenticação já estão funcionando, mas ainda faltam módulos importantes e a etapa final de documentação e testes.
+
+### Situação por área
+
+| Área | Situação estimada |
+| --- | --- |
+| Estrutura inicial e ambiente | 100% |
+| Identidade visual inicial | 80% |
+| Cadastro, login e sessões | 100% |
+| Casos e detalhes do caso | 100% |
+| Pessoas relacionadas | 100% |
+| Locais relacionados | 100% |
+| Acontecimentos | 90% |
+| Linha do tempo completa | 25% |
+| Evidências | 0% |
+| Upload de arquivos | 0% |
+| Alertas | 0% |
+| Pesquisa e filtros | 0% |
+| Auditoria | 0% |
+| Testes funcionais finais | 25% |
+| MER e DER finais | 40% |
+| Documentação final do TCC | 60% |
+
+Esses percentuais são aproximados e servem apenas para acompanhar o andamento do projeto. Eles não representam uma medição oficial de produtividade.
+
+## Próximo passo planejado
+
+O próximo módulo será o cadastro e a listagem de evidências. A tabela `evidencias` já foi verificada no banco e possui os seguintes campos principais:
+
+```
+id
+caso_id
+categoria_id
+local_id
+titulo
+descricao
+data_registro
+hora_registro
+criado_em
+atualizado_em
+```
+
+A implementação começará pelo cadastro e pela listagem das evidências. O upload de arquivos será desenvolvido posteriormente, com validação de extensão e tamanho.
+
+Após a conclusão das principais funcionalidades, será realizada uma revisão geral para:
+
+1. conferir as tabelas realmente utilizadas;
+
+1. remover estruturas redundantes;
+
+1. revisar as chaves estrangeiras;
+
+1. atualizar o MER;
+
+1. atualizar o DER;
+
+1. realizar os testes funcionais;
+
+1. registrar os resultados no TCC.

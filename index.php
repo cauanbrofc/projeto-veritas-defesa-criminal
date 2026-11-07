@@ -28,7 +28,9 @@ $paginasPermitidas = [
     'painel',
     'casos',
     'caso',
-    'pessoas'
+    'pessoas',
+    'locais',
+    'acontecimentos'
 ];
 
 
@@ -43,7 +45,10 @@ $paginasProtegidas = [
     'painel',
     'casos',
     'caso',
-    'pessoas'
+    'pessoas',
+    'locais',
+    'acontecimentos'
+
 ];
 
 if (

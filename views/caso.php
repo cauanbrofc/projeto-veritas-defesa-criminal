@@ -244,27 +244,45 @@ function classeStatusCaso(string $status): string
                 </a>
 
 
-                <div class="modulo-caso">
+                <a
+                    href="index.php?pagina=locais&caso_id=<?= (int) $caso['id'] ?>"
+                    class="modulo-caso modulo-link"
+                >
                     <span class="modulo-numero">02</span>
+
                     <div>
                         <h3>Locais</h3>
+
                         <p>
                             Locais associados aos registros.
                         </p>
                     </div>
-                    <span class="modulo-status">Em breve</span>
-                </div>
 
-                <div class="modulo-caso">
-                    <span class="modulo-numero">03</span>
-                    <div>
-                        <h3>Acontecimentos</h3>
-                        <p>
-                            Fatos organizados por data e horário.
-                        </p>
-                    </div>
-                    <span class="modulo-status">Em breve</span>
-                </div>
+                    <span class="modulo-status">
+                        Acessar
+                    </span>
+                </a>
+
+
+                <a
+    href="index.php?pagina=acontecimentos&caso_id=<?= (int) $caso['id'] ?>"
+    class="modulo-caso modulo-link"
+>
+    <span class="modulo-numero">03</span>
+
+    <div>
+        <h3>Acontecimentos</h3>
+
+        <p>
+            Fatos organizados por data e horário.
+        </p>
+    </div>
+
+    <span class="modulo-status">
+        Acessar
+    </span>
+</a>
+
 
                 <div class="modulo-caso">
                     <span class="modulo-numero">04</span>

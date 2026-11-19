@@ -30,7 +30,8 @@ $paginasPermitidas = [
     'caso',
     'pessoas',
     'locais',
-    'acontecimentos'
+    'acontecimentos',
+    'evidencias'
 ];
 
 
@@ -47,7 +48,8 @@ $paginasProtegidas = [
     'caso',
     'pessoas',
     'locais',
-    'acontecimentos'
+    'acontecimentos',
+    'evidencias'
 
 ];
 
